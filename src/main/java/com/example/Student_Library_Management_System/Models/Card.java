@@ -6,7 +6,9 @@ import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "card")
@@ -29,6 +31,10 @@ public class Card {
     @OneToOne
     @JoinColumn
     private Student studentVariableName;
+
+
+    @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
+    List<Book> booksIssued = new ArrayList<>();
 
     public Card() {
     }
