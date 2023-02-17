@@ -1,5 +1,6 @@
 package com.example.Student_Library_Management_System.Service;
 
+import com.example.Student_Library_Management_System.Dtos.StudentUpdateMobRequestDto;
 import com.example.Student_Library_Management_System.Enums.CardStatus;
 import com.example.Student_Library_Management_System.Models.Card;
 import com.example.Student_Library_Management_System.Models.Student;
@@ -34,9 +35,9 @@ public class StudentService {
         return student.getName();
     }
 
-    public String updateMobNo(Student newStudent){
-        Student orignalStudent = studentRepository.findById(newStudent.getId()).get();
-        orignalStudent.setMobNo(newStudent.getMobNo());
+    public String updateMobNo(StudentUpdateMobRequestDto studentReq){
+        Student orignalStudent = studentRepository.findById(studentReq.getId()).get();
+        orignalStudent.setMobNo(studentReq.getMobNo());
         studentRepository.save(orignalStudent);
         return "Student has been updated sucessfully";
     }

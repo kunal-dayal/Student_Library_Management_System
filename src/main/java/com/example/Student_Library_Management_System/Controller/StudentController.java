@@ -1,5 +1,6 @@
 package com.example.Student_Library_Management_System.Controller;
 
+import com.example.Student_Library_Management_System.Dtos.StudentUpdateMobRequestDto;
 import com.example.Student_Library_Management_System.Models.Student;
 import com.example.Student_Library_Management_System.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,8 @@ public class StudentController {
     }
 
     @PostMapping("/update_mobNo")
-    public String updatemob(@RequestBody Student student){
-        return studentService.updateMobNo(student);
+    public String updatemob(@RequestBody StudentUpdateMobRequestDto studentUpdateMobRequestDto){
+        return studentService.updateMobNo(studentUpdateMobRequestDto);
     }
 
 

@@ -36,7 +36,26 @@ public class Card {
     @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
     List<Book> booksIssued = new ArrayList<>();
 
+    @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
+    private List<Transactions> transactionsList = new ArrayList<>();
+
     public Card() {
+    }
+
+    public List<Book> getBooksIssued() {
+        return booksIssued;
+    }
+
+    public void setBooksIssued(List<Book> booksIssued) {
+        this.booksIssued = booksIssued;
+    }
+
+    public List<Transactions> getTransactionsList() {
+        return transactionsList;
+    }
+
+    public void setTransactionsList(List<Transactions> transactionsList) {
+        this.transactionsList = transactionsList;
     }
 
     public Student getStudentVariableName() {
